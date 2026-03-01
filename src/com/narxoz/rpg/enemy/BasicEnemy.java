@@ -1,7 +1,7 @@
 package com.narxoz.rpg.enemy;
 
 public class BasicEnemy implements Enemy {
-    private final String title;
+    protected String title;
     private final int damage;
     private int health;
 
@@ -12,30 +12,19 @@ public class BasicEnemy implements Enemy {
     }
 
     @Override
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
     @Override
-    public int getDamage() {
-        return damage;
-    }
+    public int getDamage() { return damage; }
 
     @Override
     public void applyDamage(int amount) {
-        // TODO: enforce min 0
         health -= amount;
-        if (health < 0) {
-            health = 0;
-        }
+        if (health < 0) health = 0;
     }
 
     @Override
-    public boolean isDefeated() {
-        return health <= 0;
-    }
+    public boolean isDefeated() { return health <= 0; }
 
-    public int getHealth() {
-        return health;
-    }
+    public int getHp() { return health; }
 }

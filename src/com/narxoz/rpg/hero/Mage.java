@@ -7,36 +7,15 @@ public class Mage implements Hero {
 
     public Mage(String name) {
         this.name = name;
-        // TODO: tune stats if needed
-        this.power = 25;
+        this.power = 40;
         this.health = 80;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public int getPower() {
-        return power;
-    }
-
-    @Override
-    public void receiveDamage(int amount) {
-        // TODO: enforce min 0
-        health -= amount;
-        if (health < 0) {
-            health = 0;
-        }
-    }
-
-    @Override
-    public boolean isAlive() {
-        return health > 0;
-    }
-
-    public int getHealth() {
-        return health;
+    @Override public String getName() { return name; }
+    @Override public int getPower() { return power; }
+    @Override public int getHealth() { return health; }
+    @Override public boolean isAlive() { return health > 0; }
+    @Override public void receiveDamage(int amount) {
+        this.health = Math.max(0, this.health - amount);
     }
 }

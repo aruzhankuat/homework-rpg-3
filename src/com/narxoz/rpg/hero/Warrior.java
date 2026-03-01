@@ -7,25 +7,15 @@ public class Warrior implements Hero {
 
     public Warrior(String name) {
         this.name = name;
-        this.power = 20;
-        this.health = 120;
+        this.power = 25;
+        this.health = 150;
     }
 
-    @Override
-    public String getName() { return name; }
-
-    @Override
-    public int getPower() { return power; }
-
-    @Override
-    public void receiveDamage(int amount) {
-        this.health -= amount;
-        if (this.health < 0) this.health = 0;
+    @Override public String getName() { return name; }
+    @Override public int getPower() { return power; }
+    @Override public int getHealth() { return health; }
+    @Override public boolean isAlive() { return health > 0; }
+    @Override public void receiveDamage(int amount) {
+        this.health = Math.max(0, this.health - amount);
     }
-
-    @Override
-    public boolean isAlive() { return health > 0; }
-
-    @Override
-    public int getHealth() { return health; }
 }

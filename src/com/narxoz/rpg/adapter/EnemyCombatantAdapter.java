@@ -8,15 +8,8 @@ public class EnemyCombatantAdapter implements Combatant {
 
     public EnemyCombatantAdapter(Enemy enemy) { this.enemy = enemy; }
 
-    @Override
-    public String getName() { return enemy.getTitle(); }
-
-    @Override
-    public int getAttackPower() { return enemy.getDamage(); }
-
-    @Override
-    public void takeDamage(int amount) { enemy.applyDamage(amount); }
-
-    @Override
-    public boolean isAlive() { return !enemy.isDefeated(); }
+    @Override public String getName() { return enemy.getTitle(); }
+    @Override public int getAttackPower() { return enemy.getDamage(); }
+    @Override public void takeDamage(int amount) { enemy.applyDamage(amount); }
+    @Override public boolean isAlive() { return !enemy.isDefeated(); }
 }

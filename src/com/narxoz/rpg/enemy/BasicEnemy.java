@@ -2,8 +2,8 @@ package com.narxoz.rpg.enemy;
 
 public class BasicEnemy implements Enemy {
     protected String title;
-    private final int damage;
-    private int health;
+    protected int damage;
+    protected int health;
 
     public BasicEnemy(String title, int damage, int health) {
         this.title = title;
@@ -19,13 +19,11 @@ public class BasicEnemy implements Enemy {
 
     @Override
     public void applyDamage(int amount) {
-        this.health -= amount;
-        if (this.health < 0) this.health = 0;
+        this.health = Math.max(0, this.health - amount);
     }
 
     @Override
-    public boolean isDefeated() { return health <= 0; }
-
-    @Override
-    public int getHealth() { return health; }
+    public boolean isDefeated() {
+        return health <= 0;
+    }
 }

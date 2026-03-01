@@ -5,15 +5,19 @@ import java.util.Random;
 
 public final class BattleEngine {
     private static BattleEngine instance;
-    private Random random = new Random(1L);
+    private Random random = new Random();
 
     private BattleEngine() {}
 
-    public static BattleEngine getInstance() {
+    public static synchronized BattleEngine getInstance() {
         if (instance == null) {
             instance = new BattleEngine();
         }
         return instance;
+    }
+
+    public void setRandomSeed(long seed) {
+        this.random = new Random(seed);
     }
 
     public EncounterResult runEncounter(List<Combatant> teamA, List<Combatant> teamB) {
@@ -24,23 +28,18 @@ public final class BattleEngine {
             rounds++;
             result.addLog("--- Round " + rounds + " ---");
 
-            Combatant attacker = getFirstAlive(teamA);
-            Combatant defender = getFirstAlive(teamB);
+            Combatant hero = getFirstAlive(teamA);
+            Combatant enemy = getFirstAlive(teamB);
 
-            if (attacker != null && defender != null) {
-                int damage = attacker.getAttackPower();
-                defender.takeDamage(damage);
-                result.addLog(attacker.getName() + " attacks " + defender.getName() + " for " + damage + " damage.");
-            }
+            if (hero != null && enemy != null) {
+                int hDmg = hero.getAttackPower();
+                enemy.takeDamage(hDmg);
+                result.addLog(hero.getName() + " наносит " + hDmg + " урона " + enemy.getName());
 
-            if (hasAlive(teamB)) {
-                Combatant enemyAttacker = getFirstAlive(teamB);
-                Combatant heroDefender = getFirstAlive(teamA);
-
-                if (enemyAttacker != null && heroDefender != null) {
-                    int damage = enemyAttacker.getAttackPower();
-                    heroDefender.takeDamage(damage);
-                    result.addLog(enemyAttacker.getName() + " counters " + heroDefender.getName() + " for " + damage + " damage.");
+                if (enemy.isAlive()) {
+                    int eDmg = enemy.getAttackPower();
+                    hero.takeDamage(eDmg);
+                    result.addLog(enemy.getName() + " отвечает и наносит " + eDmg + " урона " + hero.getName());
                 }
             }
         }

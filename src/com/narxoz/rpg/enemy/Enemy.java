@@ -5,5 +5,4 @@ public interface Enemy {
     int getDamage();
     void applyDamage(int amount);
     boolean isDefeated();
-    int getHealth();
 }

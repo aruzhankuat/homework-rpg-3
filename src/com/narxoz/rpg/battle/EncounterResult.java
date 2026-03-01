@@ -1,7 +1,6 @@
 package com.narxoz.rpg.battle;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class EncounterResult {
@@ -14,5 +13,5 @@ public class EncounterResult {
     public void addLog(String line) { battleLog.add(line); }
     public String getWinner() { return winner; }
     public int getRounds() { return rounds; }
-    public List<String> getBattleLog() { return Collections.unmodifiableList(battleLog); }
+    public List<String> getBattleLog() { return battleLog; }
 }

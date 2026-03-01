@@ -8,15 +8,8 @@ public class HeroCombatantAdapter implements Combatant {
 
     public HeroCombatantAdapter(Hero hero) { this.hero = hero; }
 
-    @Override
-    public String getName() { return hero.getName(); }
-
-    @Override
-    public int getAttackPower() { return hero.getPower(); }
-
-    @Override
-    public void takeDamage(int amount) { hero.receiveDamage(amount); }
-
-    @Override
-    public boolean isAlive() { return hero.isAlive(); }
+    @Override public String getName() { return hero.getName(); }
+    @Override public int getAttackPower() { return hero.getPower(); }
+    @Override public void takeDamage(int amount) { hero.receiveDamage(amount); }
+    @Override public boolean isAlive() { return hero.isAlive(); }
 }

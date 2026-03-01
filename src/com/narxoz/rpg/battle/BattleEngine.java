@@ -24,7 +24,6 @@ public final class BattleEngine {
             rounds++;
             result.addLog("--- Round " + rounds + " ---");
 
-
             Combatant attacker = getFirstAlive(teamA);
             Combatant defender = getFirstAlive(teamB);
 

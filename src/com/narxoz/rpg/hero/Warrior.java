@@ -19,12 +19,13 @@ public class Warrior implements Hero {
 
     @Override
     public void receiveDamage(int amount) {
-        health -= amount;
-        if (health < 0) health = 0;
+        this.health -= amount;
+        if (this.health < 0) this.health = 0;
     }
 
     @Override
     public boolean isAlive() { return health > 0; }
 
+    @Override
     public int getHealth() { return health; }
 }

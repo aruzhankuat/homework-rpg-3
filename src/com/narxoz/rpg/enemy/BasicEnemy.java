@@ -19,12 +19,13 @@ public class BasicEnemy implements Enemy {
 
     @Override
     public void applyDamage(int amount) {
-        health -= amount;
-        if (health < 0) health = 0;
+        this.health -= amount;
+        if (this.health < 0) this.health = 0;
     }
 
     @Override
     public boolean isDefeated() { return health <= 0; }
 
-    public int getHp() { return health; }
+    @Override
+    public int getHealth() { return health; }
 }

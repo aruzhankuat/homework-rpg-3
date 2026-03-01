@@ -6,28 +6,17 @@ import com.narxoz.rpg.enemy.Enemy;
 public class EnemyCombatantAdapter implements Combatant {
     private final Enemy enemy;
 
-    public EnemyCombatantAdapter(Enemy enemy) {
-        this.enemy = enemy;
-    }
+    public EnemyCombatantAdapter(Enemy enemy) { this.enemy = enemy; }
 
     @Override
-    public String getName() {
-        return enemy.getTitle();
-    }
+    public String getName() { return enemy.getTitle(); }
 
     @Override
-    public int getAttackPower() {
-        // TODO: translate enemy damage to combat attack
-        return enemy.getDamage();
-    }
+    public int getAttackPower() { return enemy.getDamage(); }
 
     @Override
-    public void takeDamage(int amount) {
-        enemy.applyDamage(amount);
-    }
+    public void takeDamage(int amount) { enemy.applyDamage(amount); }
 
     @Override
-    public boolean isAlive() {
-        return !enemy.isDefeated();
-    }
+    public boolean isAlive() { return !enemy.isDefeated(); }
 }

@@ -63,5 +63,5 @@ homework_rpg_3/
 Good luck. Keep the architecture clean and your patterns explicit.
 ## UML Diagrams
 
-![Singleton Diagram](https://github.com/user-attachments/files/25664658/3.drawio)
-![Adapter Diagram](https://github.com/user-attachments/files/25664783/3.1.drawio)
+![Singleton Diagram](https://github.com/user-attachments/files/25690770/3.drawio)
+![Adapter Diagram](https://github.com/user-attachments/files/25690774/3.1.drawio)
